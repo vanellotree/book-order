@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class BookOrderApplication {
 
     public static void main(String[] args) {
-
-
         SpringApplication.run(BookOrderApplication.class, args);
     }
 

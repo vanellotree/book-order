@@ -1,23 +1,11 @@
 package com.example.bookorder.common;
 
-import java.time.LocalDate;
+import com.example.bookorder.domain.Book;
 
-public class DiscountPolicy {
 
-    private double discountRate = 0.1;
+public interface DiscountPolicy {
 
-    public int getFridaysProgrammingBookDiscount(int price, LocalDate date, String category) {
-        String purchaseDay = date.getDayOfWeek().toString();
-        int discountedPrice = 0;
-        
-        if (purchaseDay.equals("FRIDAY")  && category.equals("IT")) {
-            discountedPrice = (int) (price * discountRate);
-        }
-        return discountedPrice;
-    }
+        boolean isDiscountable(Book book);
 
-    public int getCultureCategoryBook(int price) {
-        price -= 1500;
-        return price;
-    }
+        int getDiscountPrice(Book book);
 }
