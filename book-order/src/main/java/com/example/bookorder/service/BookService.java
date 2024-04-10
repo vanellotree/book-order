@@ -32,16 +32,18 @@ public class BookService {
         );
 
         for (Book book : bookList) {
-
             // TODO: OCP 알아보기
             // Open-close Principle
-            int discountSum = 0;
-            for(DiscountPolicy discountPolicy : discountPolicies){
-                if(discountPolicy.isDiscountable(book)){
-                   discountSum += discountPolicy.getDiscountPrice(book);
+
+            ResBookListDto.BookInfo bookInfo = null;
+            for (DiscountPolicy discountPolicy : discountPolicies) {
+                if (discountPolicy.isDiscountable(book)) {
+                    int discountPrice = discountPolicy.getDiscountPrice(book);
+                    bookInfo = new ResBookListDto.BookInfo(book, discountPrice);
                 }
             }
-//
+
+
 //            // 할인
 //            OriginDiscountPolicy discountPolicy = new OriginDiscountPolicy();
 //
@@ -54,8 +56,6 @@ public class BookService {
 //                discountedPrice = discountPolicy.getCultureCategoryBook(price);
 //            }
 
-
-            ResBookListDto.BookInfo bookInfo = new ResBookListDto.BookInfo(book);
 
             // TODO: 묻지말고 시켜라. 책임을 할당한 객체에게
             // 내가 다알고있다 == 결합도가 높다 == 변경에 영향을 받는다

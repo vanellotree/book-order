@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public class Money {
     private BigDecimal value;
 
-    public Money(BigDecimal value) {
-        this.value = value;
+    public Money(int value) {
+        this.value = BigDecimal.valueOf(value);
     }
 }

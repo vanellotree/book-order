@@ -25,5 +25,4 @@ public class BookController {
 
         return new ResponseEntity<>(books, null, HttpStatus.OK);
     }
-
 }

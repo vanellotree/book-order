@@ -7,7 +7,6 @@ public class OriginDiscountPolicy {
     private double discountRate = 0.1;
 
     public int getFridaysProgrammingBookDiscount(int price, LocalDate date, String category) {
-//        book.get()
 
         String purchaseDay = date.getDayOfWeek().toString();
         int discountedPrice = 0;

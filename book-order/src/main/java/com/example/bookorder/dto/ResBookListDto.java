@@ -27,11 +27,11 @@ public class ResBookListDto {
         public BookInfo() {
         }
 
-        public BookInfo(Book book) {
-            this.id = id;
-            this.name = name;
-            this.category = category;
-            this.originalPrice = originalPrice;
+        public BookInfo(Book book, int discountPrice) {
+            this.id = Long.valueOf(book.getId());
+            this.name = book.getName();
+            this.category = book.getCategory();
+            this.originalPrice = book.getPrice();
             this.discountPrice = discountPrice;
         }
     }
